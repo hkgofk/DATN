@@ -13,6 +13,10 @@ namespace ChieuTour.Areas.Admin.Controllers
         // GET: Admin/Home
         public ActionResult Index()
         {
+            if (Session["HoTen"] == null)
+            {
+                return RedirectToAction("Login");
+            }
             return View();
         }
         public ActionResult Login()
