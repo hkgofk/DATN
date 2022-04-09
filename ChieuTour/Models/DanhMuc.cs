@@ -1,7 +1,8 @@
-namespace ChieuTour.Models
+﻿namespace ChieuTour.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -18,7 +19,8 @@ namespace ChieuTour.Models
         [Key]
         public int MaDanhMuc { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Tên danh mục không được để trống!")]
+        [DisplayName("Tên danh mục")]
         [StringLength(500)]
         public string TenDanhMuc { get; set; }
 

@@ -33,7 +33,7 @@ namespace ChieuTour.Areas.Admin.Controllers
                 if(nguoiDungs.Count() > 0)
                 {
                     Session["HoTen"] = nguoiDungs.FirstOrDefault().HoTen;
-
+                    //TempData["success"] = "Đăng nhập thành công!";
                     return RedirectToAction("Index");
                 }
                 else
@@ -42,6 +42,12 @@ namespace ChieuTour.Areas.Admin.Controllers
                 }
             }
             return View();
+        }
+        public ActionResult Logout()
+        {
+            Session["HoTen"] = null;
+            //TempData["success"] = "Đăng xuất thành công!";
+            return RedirectToAction("Index");
         }
 
     }

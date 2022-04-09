@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ChieuTour.Models.DanhMuc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Danh mục</h2>
+
+<div class="text-right">
+    
+    <a class="btn btn-primary" href="/Admin/DanhMucs/Create">
+        <i class="bi bi-plus-lg btn-w"></i>&nbsp;
+        Thêm danh mục mới
+    </a>
+</div>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenDanhMuc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDanhMuc)
+        </td>
+        <td>
+            @Html.ActionLink(" ", "Edit", new { id = item.MaDanhMuc }, new { @class = "bi bi-pencil-square btn btn-warning" }) |
+            @Html.ActionLink(" ", "Details", new { id = item.MaDanhMuc }, new { @class = "bi bi-ticket-detailed-fill btn btn-primary" }) |
+            @Html.ActionLink(" ", "Delete", new { id = item.MaDanhMuc }, new { @class = "bi bi-trash-fill btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
