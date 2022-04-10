@@ -1,0 +1,102 @@
+﻿@model ChieuTour.Models.Tour
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thông tin</h2>
+
+<div>
+    <h4>Tour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DanhMuc.TenDanhMuc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhMuc.TenDanhMuc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LichTrinh)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.LichTrinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaNL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaNL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaTE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaTE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhuongTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhuongTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anh)
+        </dt>
+
+        <dd>
+            @{
+                string ImagePath = "~/wwwroot/images/" + Model.Anh;
+            }
+            <img src="@Url.Content(ImagePath)" width="100" class="img-responsive" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiamGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiamGia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoatDong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoatDong)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaTour }, new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-dark" })
+</p>

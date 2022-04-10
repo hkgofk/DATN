@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" validateRequest ="false">
 
 <head>
 
@@ -9,7 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title>Admin</title>
+    @Scripts.Render("~/bundles/ckeditor")
     <link rel="shortcut icon" type="image/x-icon" href="~/esy-048237037.jpg" />
     <!-- Custom fonts for this template-->
     <link href="~/wwwroot/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -70,7 +71,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Các mục quản lý:</h6>
                         <a class="collapse-item" href="/Admin/DanhMucs/Index">Quản lý danh mục</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="/Admin/Tours/Index">Quản lý tour</a>
                     </div>
                 </div>
             </li>
