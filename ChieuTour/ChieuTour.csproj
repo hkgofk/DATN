@@ -185,6 +185,7 @@
     <Content Include="wwwroot\Admin\vendor\datatables\dataTables.bootstrap4.js" />
     <Content Include="wwwroot\Admin\vendor\datatables\dataTables.bootstrap4.min.css" />
     <Content Include="wwwroot\Admin\vendor\datatables\dataTables.bootstrap4.min.js" />
+    <Content Include="wwwroot\Admin\vendor\datatables\dataTables.rowGroup.min.js" />
     <Content Include="wwwroot\Admin\vendor\datatables\jquery.dataTables.js" />
     <Content Include="wwwroot\Admin\vendor\datatables\jquery.dataTables.min.js" />
     <Content Include="wwwroot\Admin\vendor\fontawesome-free\attribution.js" />

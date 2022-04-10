@@ -8,32 +8,95 @@
 <h2>Danh mục</h2>
 
 <div class="text-right">
-    
+
     <a class="btn btn-primary" href="/Admin/DanhMucs/Create">
         <i class="bi bi-plus-lg btn-w"></i>&nbsp;
         Thêm danh mục mới
     </a>
 </div>
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenDanhMuc)
-        </th>
-        <th></th>
-    </tr>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="test" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TenDanhMuc)
+                            </th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TenDanhMuc)
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "Details", new { id = item.MaDanhMuc }, new { @class = "bi bi-ticket-detailed-fill btn btn-primary" }) |
+                                @Html.ActionLink(" ", "Edit", new { id = item.MaDanhMuc }, new { @class = "bi bi-pencil-square btn btn-warning" }) |
+                                @Html.ActionLink(" ", "Delete", new { id = item.MaDanhMuc }, new { @class = "bi bi-trash-fill btn btn-danger" })
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenDanhMuc)
-        </td>
-        <td>
-            @Html.ActionLink(" ", "Edit", new { id = item.MaDanhMuc }, new { @class = "bi bi-pencil-square btn btn-warning" }) |
-            @Html.ActionLink(" ", "Details", new { id = item.MaDanhMuc }, new { @class = "bi bi-ticket-detailed-fill btn btn-primary" }) |
-            @Html.ActionLink(" ", "Delete", new { id = item.MaDanhMuc }, new { @class = "bi bi-trash-fill btn btn-danger" })
-        </td>
-    </tr>
-}
-
-</table>
+<script>
+    $(document).ready(function () {
+        $('#test').DataTable({
+            "language": {
+                "paginate": {
+                    "previous": "Trước",
+                    "next": "Tiếp theo"
+                },
+                
+            },
+            "oLanguage": {
+                "sEmptyTable": "Không có danh mục",
+                "sZeroRecords": "Không bản ghi nào được tìm thấy",
+                "sInfo": "Hiển thị từ _START_ đến _END_ trong số _TOTAL_ bản ghi",
+                "sInfoEmpty": "Hiển thị từ 0 đến 0 trong số 0 bản ghi",
+                "sInfoFiltered": "(được lọc từ _MAX_ bản ghi)",
+                "sLoadingRecords": "Đang tải...",
+                "sProcessing": "Đang xử lý...",
+                "sSearch": "Tìm kiếm:",
+            },
+            lengthChange: false
+        });
+    });
+    //var table = undefined;
+    //$(document).ready(function () {
+    //    loadTable();        
+    //});
+    //function loadTable() {
+    //    table = $('#test').dataTable({
+    //        "oLanguage": {
+    //            "sEmptyTable": "Không có thành phố"
+    //        },
+    //        "language": {
+    //            "paginate": {
+    //                "previous": "Trước",
+    //                "next": "Tiếp theo"
+    //            }
+    //        },
+    //        searching: true,
+    //        paging: true,
+    //        lengthChange: true,
+    //        ordering: true,
+    //        filter: false,
+    //        destroy: true,
+    //        orderMulti: false,
+    //        serverSide: true,
+    //        processing: true,
+    //        lengthChange: true,
+    //        "bSort": false,           
+    //    });
+    //}
+</script>
