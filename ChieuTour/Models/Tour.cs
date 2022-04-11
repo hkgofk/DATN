@@ -48,7 +48,6 @@
         [StringLength(200)]
         public string PhuongTien { get; set; }
 
-    
         [DisplayName("Ảnh")]
         [StringLength(500)]
         public string Anh { get; set; }
@@ -56,6 +55,7 @@
         [DisplayName("Danh mục tour")]
         public int MaDanhMuc { get; set; }
 
+        [Required(ErrorMessage = "Giảm giá không được để trống!")]
         [DisplayName("Giảm giá")]
         public int GiamGia { get; set; }
 

@@ -85,6 +85,7 @@ namespace ChieuTour.Areas.Admin.Controllers
             {
                 db.Entry(danhMuc).State = EntityState.Modified;
                 db.SaveChanges();
+                TempData["success"] = "Sửa danh mục thành công!";
                 return RedirectToAction("Index");
             }
             return View(danhMuc);
