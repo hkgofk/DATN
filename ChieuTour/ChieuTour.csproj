@@ -131,6 +131,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DanhMucsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TinTucsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ToursController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2205,6 +2206,11 @@
     <Content Include="Areas\Admin\Views\Tours\Index.cshtml" />
     <Content Include="wwwroot\images\h0.png" />
     <Content Include="Scripts\ckeditor\ckeditor.pack" />
+    <Content Include="Areas\Admin\Views\TinTucs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\TinTucs\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

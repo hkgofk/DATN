@@ -111,9 +111,20 @@ namespace ChieuTour.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             DanhMuc danhMuc = db.DanhMucs.Find(id);
-            db.DanhMucs.Remove(danhMuc);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                
+                db.DanhMucs.Remove(danhMuc);
+                db.SaveChanges();
+                TempData["success"] = "Đã xóa danh mục!";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = "Không thể xóa danh mục này!";
+                return View(danhMuc);
+            }
+            
         }
 
         protected override void Dispose(bool disposing)

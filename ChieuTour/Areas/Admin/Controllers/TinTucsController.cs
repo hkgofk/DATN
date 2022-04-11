@@ -10,45 +10,45 @@ using ChieuTour.Models;
 
 namespace ChieuTour.Areas.Admin.Controllers
 {
-    public class ToursController : Controller
+    public class TinTucsController : Controller
     {
         private ChieuTourDBContext db = new ChieuTourDBContext();
 
-        // GET: Admin/Tours
+        // GET: Admin/TinTucs
         public ActionResult Index()
         {
-            var tours = db.Tours.Include(t => t.DanhMuc);
-            return View(tours.ToList());
+            var tinTucs = db.TinTucs.Include(t => t.NguoiDung);
+            return View(tinTucs.ToList());
         }
 
-        // GET: Admin/Tours/Details/5
+        // GET: Admin/TinTucs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tour tour = db.Tours.Find(id);
-            if (tour == null)
+            TinTuc tinTuc = db.TinTucs.Find(id);
+            if (tinTuc == null)
             {
                 return HttpNotFound();
             }
-            return View(tour);
+            return View(tinTuc);
         }
 
-        // GET: Admin/Tours/Create
+        // GET: Admin/TinTucs/Create
         public ActionResult Create()
         {
-            ViewBag.MaDanhMuc = new SelectList(db.DanhMucs, "MaDanhMuc", "TenDanhMuc");
+            ViewBag.MaNguoiDung = new SelectList(db.NguoiDungs, "MaNguoiDung", "TaiKhoan");
             return View();
         }
 
-        // POST: Admin/Tours/Create
+        // POST: Admin/TinTucs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaTour,TenTour,MoTa,LichTrinh,GiaNL,GiaTE,PhuongTien,Anh,MaDanhMuc,GiamGia,HoatDong")] Tour tour, HttpPostedFileBase image)
+        public ActionResult Create([Bind(Include = "MaTinTuc,TieuDe,NoiDung,HinhAnh,NgayDang,MaNguoiDung")] TinTuc tinTuc, HttpPostedFileBase image)
         {
             if (image != null && image.ContentLength > 0)
             {
@@ -56,48 +56,49 @@ namespace ChieuTour.Areas.Admin.Controllers
                 string urlImage = Server.MapPath("~/wwwroot/images/" + fileName);
                 image.SaveAs(urlImage);
 
-                tour.Anh = fileName;
+                tinTuc.HinhAnh = fileName;
             }
 
             if (ModelState.IsValid)
             {
-                db.Tours.Add(tour);
+                tinTuc.MaNguoiDung = 2;
+                tinTuc.NgayDang = DateTime.Now;
+                db.TinTucs.Add(tinTuc);
                 db.SaveChanges();
-                TempData["success"] = "Thêm tour thành công!";
+                TempData["success"] = "Thêm tin tức thành công!";
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaDanhMuc = new SelectList(db.DanhMucs, "MaDanhMuc", "TenDanhMuc", tour.MaDanhMuc);
-            return View(tour);
+            ViewBag.MaNguoiDung = new SelectList(db.NguoiDungs, "MaNguoiDung", "TaiKhoan", tinTuc.MaNguoiDung);
+            return View(tinTuc);
         }
 
-        // GET: Admin/Tours/Edit/5
+        // GET: Admin/TinTucs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tour tour = db.Tours.Find(id);
-            if (tour == null)
+            TinTuc tinTuc = db.TinTucs.Find(id);
+            if (tinTuc == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaDanhMuc = new SelectList(db.DanhMucs, "MaDanhMuc", "TenDanhMuc", tour.MaDanhMuc);
-            return View(tour);
+            ViewBag.MaNguoiDung = new SelectList(db.NguoiDungs, "MaNguoiDung", "TaiKhoan", tinTuc.MaNguoiDung);
+            return View(tinTuc);
         }
 
-        // POST: Admin/Tours/Edit/5
+        // POST: Admin/TinTucs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaTour,TenTour,MoTa,LichTrinh,GiaNL,GiaTE,PhuongTien,Anh,MaDanhMuc,GiamGia,HoatDong")] Tour tour, HttpPostedFileBase image)
+        public ActionResult Edit([Bind(Include = "MaTinTuc,TieuDe,NoiDung,HinhAnh,NgayDang,MaNguoiDung")] TinTuc tinTuc, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
             {
-
-                if (tour != null)
+                if (tinTuc != null)
                 {
                     if (image != null && image.ContentLength > 0)
                     {
@@ -105,43 +106,43 @@ namespace ChieuTour.Areas.Admin.Controllers
                         string urlImage = Server.MapPath("~/wwwroot/images/" + fileName);
                         image.SaveAs(urlImage);
 
-                        tour.Anh = fileName;
+                        tinTuc.HinhAnh = fileName;
                     }
                 }
-
-                db.Entry(tour).State = EntityState.Modified;
+                tinTuc.MaNguoiDung = 2;
+                db.Entry(tinTuc).State = EntityState.Modified;
                 db.SaveChanges();
-                TempData["success"] = "Sửa tour thành công!";
+                TempData["success"] = "Sửa tin tức thành công!";
                 return RedirectToAction("Index");
             }
-            ViewBag.MaDanhMuc = new SelectList(db.DanhMucs, "MaDanhMuc", "TenDanhMuc", tour.MaDanhMuc);
-            return View(tour);
+            ViewBag.MaNguoiDung = new SelectList(db.NguoiDungs, "MaNguoiDung", "TaiKhoan", tinTuc.MaNguoiDung);
+            return View(tinTuc);
         }
 
-        // GET: Admin/Tours/Delete/5
+        // GET: Admin/TinTucs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Tour tour = db.Tours.Find(id);
-            if (tour == null)
+            TinTuc tinTuc = db.TinTucs.Find(id);
+            if (tinTuc == null)
             {
                 return HttpNotFound();
             }
-            return View(tour);
+            return View(tinTuc);
         }
 
-        // POST: Admin/Tours/Delete/5
+        // POST: Admin/TinTucs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Tour tour = db.Tours.Find(id);
-            db.Tours.Remove(tour);
+            TinTuc tinTuc = db.TinTucs.Find(id);
+            db.TinTucs.Remove(tinTuc);
             db.SaveChanges();
-            TempData["success"] = "Xóa tour thành công!";
+            TempData["success"] = "Đã xóa tin tức!";
             return RedirectToAction("Index");
         }
 

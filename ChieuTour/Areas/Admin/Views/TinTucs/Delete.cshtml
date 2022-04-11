@@ -1,0 +1,68 @@
+﻿@model ChieuTour.Models.TinTuc
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var ImagePath = "~/wwwroot/images/" + Model.HinhAnh;
+}
+
+<h2>Xóa</h2>
+
+<h3>Bạn có muốn xóa tin tức này?</h3>
+<div>
+    <h4>Tin tức</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Người đăng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiDung.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TieuDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TieuDe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.NoiDung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(ImagePath)" alt="Ảnh" width="180" height="200" id="output" class="img-rounded" /><br />
+            @Html.DisplayFor(model => model.HinhAnh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayDang)
+        </dt>
+
+        <dd>
+            @string.Format("{0:dd/MM/yyyy}", Model.NgayDang).ToString()
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger" /> |
+            @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-dark" })
+        </div>
+    }
+</div>

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ChieuTour.Models.TinTuc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Tin tức</h2>
+
+<div class="text-right">
+
+    <a class="btn btn-primary" href="/Admin/TinTucs/Create">
+        <i class="bi bi-plus-lg btn-w"></i>&nbsp;
+        Thêm tin tức mới
+    </a>
+</div>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="test" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TieuDe)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.HinhAnh)
+                            </th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TieuDe)
+                            </td>
+                            <td>
+                                @{
+                                    string ImagePath = "~/wwwroot/images/" + item.HinhAnh;
+                                }
+                                <img src="@Url.Content(ImagePath)" width="100" class="img-thumbnail" />
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "Details", new { id = item.MaTinTuc }, new { @class = "bi bi-ticket-detailed-fill btn btn-primary" }) |
+                                @Html.ActionLink(" ", "Edit", new { id = item.MaTinTuc }, new { @class = "bi bi-pencil-square btn btn-warning" }) |
+                                @Html.ActionLink(" ", "Delete", new { id = item.MaTinTuc }, new { @class = "bi bi-trash-fill btn btn-danger" })
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#test').DataTable({
+            "language": {
+                "paginate": {
+                    "previous": "Trước",
+                    "next": "Tiếp theo"
+                },
+
+            },
+            "oLanguage": {
+                "sEmptyTable": "Không có tin tức",
+                "sZeroRecords": "Không bản ghi nào được tìm thấy",
+                "sInfo": "Hiển thị từ _START_ đến _END_ trong số _TOTAL_ bản ghi",
+                "sInfoEmpty": "Hiển thị từ 0 đến 0 trong số 0 bản ghi",
+                "sInfoFiltered": "(được lọc từ _MAX_ bản ghi)",
+                "sLoadingRecords": "Đang tải...",
+                "sProcessing": "Đang xử lý...",
+                "sSearch": "Tìm kiếm:",
+            },
+            lengthChange: false
+        });
+    });
+</script>
