@@ -15,7 +15,7 @@ namespace ChieuTour.Controllers
         {
             return View();
         }
-        [ChildActionOnly]
+        
         public ActionResult ListDanhMuc()
         {
             var danhMucs = db.DanhMucs.ToList();

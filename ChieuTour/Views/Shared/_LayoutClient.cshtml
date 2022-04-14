@@ -173,7 +173,7 @@
         <div class="container">
             <div class="row">
                 <!-- Sidebar ================================================== -->
-                @Html.Partial("_DanhMuc")
+                @{Html.RenderAction("ListDanhMuc", "DanhMuc");}
                 <!-- Sidebar end=============================================== -->
                 @Html.Partial("Notifications")
                 @RenderBody()
