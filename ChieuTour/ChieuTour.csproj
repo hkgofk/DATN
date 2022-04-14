@@ -2600,11 +2600,11 @@
     <Content Include="Views\Shared\_LayoutClient.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_DanhMuc.cshtml" />
+    <Content Include="Views\DanhMuc\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Views\DanhMuc\" />
     <Folder Include="wwwroot\Client\themes\less\oregional\" />
   </ItemGroup>
   <ItemGroup>

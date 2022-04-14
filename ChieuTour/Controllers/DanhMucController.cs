@@ -11,8 +11,11 @@ namespace ChieuTour.Controllers
     {
         private ChieuTourDBContext db = new ChieuTourDBContext();
         // GET: DanhMuc
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
+            var listTours = db.Tours.Where(t => t.MaDanhMuc == id);
+            ViewBag.Tours = listTours;
+
             return View();
         }
         

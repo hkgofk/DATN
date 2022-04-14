@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+
+<ul class="thumbnails">
+    @foreach (var item in ViewBag.Tours)
+    {
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="product_details.html"><img src="~/wwwroot/images/@item.Anh" alt="" /></a>
+                <div class="caption">
+                    <h5>@item.TenTour</h5>
+                    @if (item.GiamGia != 0)
+                    {
+                        double giaGiam = 0;
+                        giaGiam = (float)item.GiaNL * (1 - ((float)item.GiamGia / 100));
+                        <p style="text-decoration-line: line-through">@string.Format("{0:#,#}", item.GiaNL)</p>
+                        <p style="color: red; font-size: large; font-weight: bold">@string.Format("{0:#,#}", giaGiam) vnđ</p>
+
+                    }
+                    else
+                    {
+                        <p style="color: red; font-size: large; font-weight: bold">@string.Format("{0:#,#}", item.GiaNL) vnđ</p>
+                    }
+                    
+
+                    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a>
+                </div>
+            </div>
+        </li>
+    }
+</ul>
+
