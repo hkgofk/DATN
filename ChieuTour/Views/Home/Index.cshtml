@@ -1,31 +1,263 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="span9">
+    <div class="well well-small">
+        <h4>Featured Products <small class="pull-right">200+ featured products</small></h4>
+        <div class="row-fluid">
+            <div id="featured" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <ul class="thumbnails">
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/b1.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/b2.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/b3.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/b4.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <ul class="thumbnails">
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/5.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <i class="tag"></i>
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/6.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/7.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/8.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <ul class="thumbnails">
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/9.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/10.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/11.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/1.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <ul class="thumbnails">
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/2.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/3.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/4.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/5.jpg" alt=""></a>
+                                    <div class="caption">
+                                        <h5>Product name</h5>
+                                        <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#featured" data-slide="prev">‹</a>
+                <a class="right carousel-control" href="#featured" data-slide="next">›</a>
+            </div>
+        </div>
+    </div>
+    <h4>Latest Products </h4>
+    <ul class="thumbnails">
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/6.jpg" alt="" /></a>
+                <div class="caption">
+                    <h5>Product name</h5>
+                    <p>
+                        Lorem Ipsum is simply dummy text.
+                    </p>
+
+                    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+                </div>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/7.jpg" alt="" /></a>
+                <div class="caption">
+                    <h5>Product name</h5>
+                    <p>
+                        Lorem Ipsum is simply dummy text.
+                    </p>
+                    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+                </div>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/8.jpg" alt="" /></a>
+                <div class="caption">
+                    <h5>Product name</h5>
+                    <p>
+                        Lorem Ipsum is simply dummy text.
+                    </p>
+                    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+                </div>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/9.jpg" alt="" /></a>
+                <div class="caption">
+                    <h5>Product name</h5>
+                    <p>
+                        Lorem Ipsum is simply dummy text.
+                    </p>
+                    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+                </div>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/10.jpg" alt="" /></a>
+                <div class="caption">
+                    <h5>Product name</h5>
+                    <p>
+                        Lorem Ipsum is simply dummy text.
+                    </p>
+                    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+                </div>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="product_details.html"><img src="~/wwwroot/Client/themes/images/products/11.jpg" alt="" /></a>
+                <div class="caption">
+                    <h5>Product name</h5>
+                    <p>
+                        Lorem Ipsum is simply dummy text.
+                    </p>
+                    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$222.00</a></h4>
+                </div>
+            </div>
+        </li>
+    </ul>
+
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>

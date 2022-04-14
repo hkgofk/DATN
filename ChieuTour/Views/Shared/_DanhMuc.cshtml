@@ -1,0 +1,14 @@
+﻿<div id="sidebar" class="span3">
+    <ul id="sideManu" class="nav nav-tabs nav-stacked">
+        <li class="subMenu open">
+            <a> DANH MỤC TOUR </a>
+            <ul>
+                @foreach (var item in ViewBag.danhMucTour)
+                {
+                    <li><a href="@Url.Action("Index", "DanhMuc", new { id = item.MaDanhMuc })">@item.TenDanhMuc</a></li>
+                }
+            </ul>
+        </li>
+    </ul>
+    <br />
+</div>
