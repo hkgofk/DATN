@@ -135,6 +135,7 @@
     <Compile Include="Areas\Admin\Controllers\ToursController.cs" />
     <Compile Include="Controllers\DanhMucController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TourController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2338,6 +2339,7 @@
     <Content Include="Areas\Admin\Views\TinTucs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\TinTucs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\TinTucs\Index.cshtml" />
+    <Content Include="wwwroot\images\logo.png" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2601,6 +2603,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_DanhMuc.cshtml" />
     <Content Include="Views\DanhMuc\Index.cshtml" />
+    <Content Include="Views\Tour\Detail.cshtml" />
+    <Content Include="Views\Shared\_Slidebar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
