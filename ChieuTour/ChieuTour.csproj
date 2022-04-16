@@ -141,6 +141,7 @@
     <Compile Include="Areas\Admin\Controllers\TinTucsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ToursController.cs" />
     <Compile Include="Controllers\DanhMucController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TourController.cs" />
     <Compile Include="Global.asax.cs">
@@ -150,6 +151,7 @@
     <Compile Include="Models\ChiTietDonHang.cs" />
     <Compile Include="Models\DanhMuc.cs" />
     <Compile Include="Models\DonHang.cs" />
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\NguoiDung.cs" />
     <Compile Include="Models\PhanQuyen.cs" />
     <Compile Include="Models\TinTuc.cs" />
@@ -2614,6 +2616,7 @@
     <Content Include="Views\Tour\Detail.cshtml" />
     <Content Include="Views\Shared\_Slidebar.cshtml" />
     <Content Include="Views\Shared\_LayoutClient1.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

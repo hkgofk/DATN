@@ -1,0 +1,126 @@
+﻿@using ChieuTour.Models
+@model List<GioHang>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+
+<div class="span9">
+    <ul class="breadcrumb">
+        <li><a href="@Url.Action("Index", "Home")">Trang chủ</a> <span class="divider">/</span></li>
+        <li class="active"> GIỎ HÀNG</li>
+    </ul>
+    <h3>  GIỎ HÀNG <a href="@Url.Action("Index", "Home")" class="btn btn-large pull-right"><i class="icon-arrow-left"></i> Tiếp tục mua </a></h3>
+    <hr class="soft" />
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Ảnh</th>
+                <th>Tên tour</th>
+                <th>Số lượng người lớn</th>
+                <th>Giá người lớn</th>
+                <th>Số lượng trẻ em</th>
+                <th>Giá trẻ em</th>
+                <th>Thành tiền</th>
+                <th colspan="3">Hành động</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td> <img width="60" src="~/wwwroot/images/@item.anh" alt="" /></td>
+                <td width="200px">@item.tenTour</td>
+                @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { iMaSP = item.maTour }))
+                {
+                    <td>
+                        <input type="number" min="1" name="txtSoLuongNL" value="@item.soLuongNL" style="background-color:yellow; width: 115px" />
+                    </td>
+                    <td>@String.Format("{0:0,0}", item.giaNL)</td>
+                    <td>
+                        <input type="number" min="0" name="txtSoLuongTE" value="@item.soLuongTE" style="background-color: yellow; width: 100px" />
+                    </td>
+
+                    <td>@String.Format("{0:0,0}", item.giaTE)</td>
+                    <td>@String.Format("{0:0,0}", item.thanhTien)</td>
+                    <td><a href="@Url.Action("Detail","Tour",new { id = item.maTour })">Chi Tiết</a></td>
+                    <td> @Html.ActionLink("Xóa", "XoaGiohang", new { @iMaSP = item.maTour })</td>
+                    <td><input type="submit" value="Cập nhật" /></td>
+                }
+            </tr>
+            }
+
+
+
+            <tr>
+                <td colspan="9" style="text-align:right">Total Price:	</td>
+                <td> $228.00</td>
+            </tr>
+            <tr>
+                <td colspan="9" style="text-align:right">Total Discount:	</td>
+                <td> $50.00</td>
+            </tr>
+            <tr>
+                <td colspan="9" style="text-align:right">Total Tax:	</td>
+                <td> $31.00</td>
+            </tr>
+            <tr>
+                <td colspan="9" style="text-align:right"><strong>TOTAL ($228 - $50 + $31) =</strong></td>
+                <td class="label label-important" style="display:block"> <strong> $155.00 </strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td>
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label"><strong> VOUCHERS CODE: </strong> </label>
+                            <div class="controls">
+                                <input type="text" class="input-medium" placeholder="CODE">
+                                <button type="submit" class="btn"> ADD </button>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <table class="table table-bordered">
+        <tr><th>ESTIMATE YOUR SHIPPING </th></tr>
+        <tr>
+            <td>
+                <form class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label" for="inputCountry">Country </label>
+                        <div class="controls">
+                            <input type="text" id="inputCountry" placeholder="Country">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputPost">Post Code/ Zipcode </label>
+                        <div class="controls">
+                            <input type="text" id="inputPost" placeholder="Postcode">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn">ESTIMATE </button>
+                        </div>
+                    </div>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <a href="products.html" class="btn btn-large"><i class="icon-arrow-left"></i> Continue Shopping </a>
+    <a href="login.html" class="btn btn-large pull-right">Next <i class="icon-arrow-right"></i></a>
+
+</div>
+
