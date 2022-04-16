@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace ChieuTour.Controllers
 {
@@ -11,12 +12,14 @@ namespace ChieuTour.Controllers
     {
         private ChieuTourDBContext db = new ChieuTourDBContext();
         // GET: DanhMuc
-        public ActionResult Index(int id)
+        public ActionResult Index(int id, int? page)
         {
             var listTours = db.Tours.Where(t => t.MaDanhMuc == id);
-            ViewBag.Tours = listTours;
+            listTours = listTours.OrderBy(t => t.MaTour);
+            int pageSize = 6;
+            int pageNumber = page ?? 1;
 
-            return View();
+            return View(listTours.ToPagedList(pageNumber, pageSize));
         }
         
         public ActionResult ListDanhMuc()

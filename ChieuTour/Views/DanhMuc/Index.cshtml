@@ -1,11 +1,13 @@
-﻿
+﻿@model PagedList.IPagedList<ChieuTour.Models.Tour>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
 }
 
 <ul class="thumbnails">
-    @foreach (var item in ViewBag.Tours)
+    @foreach (var item in Model)
     {
         <li class="span3">
             <div class="thumbnail">
@@ -24,7 +26,7 @@
                     {
                         <p style="color: red; font-size: large; font-weight: bold">@string.Format("{0:#,#}", item.GiaNL) vnđ</p>
                     }
-                    
+
 
                     <h4 style="text-align:center"><a class="btn" href="@Url.Action("Detail", "Tour", new { id = item.MaTour })"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a>
                 </div>
@@ -32,4 +34,8 @@
         </li>
     }
 </ul>
+<div style="float: right">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
 
