@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ChieuTour.Models.ChiTietDonHang>
+
+@{
+    ViewBag.Title = "Chi tiết hóa đơn";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    
+}
+
+<h2>Chi tiết đơn hàng</h2>
+
+@foreach (var m in ViewBag.Main)
+{
+    <h4 name="maDon">Mã đơn hàng: @m.donhang.MaDon</h4>
+    <h4>Tên khách hàng: @m.nguoidung.HoTen</h4>
+    <h4>Địa chỉ: @m.nguoidung.DiaChi</h4>
+    <h4>Số điện thoại: @m.nguoidung.SDT</h4>
+    <h4>Email: @m.nguoidung.Email</h4>
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Số TT</th>
+                            <th>Tên tour</th>
+                            <th>Số lượng người lớn</th>
+                            <th>Đơn giá người lớn</th>
+                            <th>Số lượng trẻ em</th>
+                            <th>Đơn giá trẻ em</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            double tongtien = 0;
+                            int i = 0;
+                        }
+                        @foreach (var item in ViewBag.Sub)
+                        {
+                            i++;
+                            tongtien = tongtien + item.thanhTien;
+                            <tr>
+                                <td>@i</td>
+                                <td>@item.tour.TenTour</td>
+
+                                <td>@item.ctdh.SoLuongNL</td>
+                                <td>@string.Format("{0:0,0}", (float)item.tour.GiaNL * (1 - (float)item.tour.GiamGia / 100))</td>
+                                <td>@item.ctdh.SoLuongTE</td>
+                                <td>@string.Format("{0:0,0}", (float)item.tour.GiaTE * (1 - (float)item.tour.GiamGia / 100))</td>
+                                <td>@string.Format("{0:0,0}", item.thanhTien)</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+
+                            <th colspan="6" style="text-align: right">Tổng tiền:</th>
+                            <th><text>@string.Format("{0:0,0}", tongtien)</text></th>
+                        </tr>
+                    </tfoot>
+
+
+                </table>
+                <div class="text-right">
+                    <a href="@Url.Action("XacNhan", "DonHang", new { @MaDon = ViewBag.maDon, @text = "Đã xác nhận" })" class="btn btn-success btn-icon-split text-right">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <span class="text">Xác nhận</span>
+                    </a>
+                    <a href="@Url.Action("XacNhan", "DonHang", new { @MaDon = ViewBag.maDon, @text = "Không liên lạc được" })" class="btn btn-danger btn-icon-split right">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </span>
+                        <span class="text">Không liên lạc được</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Trở về", "Index", "DonHang", new { }, new { @class = "btn btn-dark" })
+</div>

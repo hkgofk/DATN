@@ -137,6 +137,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\DanhMucsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\TinTucsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ToursController.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Models\TinTuc.cs" />
     <Compile Include="Models\Tour.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2352,6 +2354,8 @@
     <Content Include="Areas\Admin\Views\TinTucs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\TinTucs\Index.cshtml" />
     <Content Include="wwwroot\images\logo.png" />
+    <Content Include="Areas\Admin\Views\DonHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Detail.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

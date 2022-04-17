@@ -1,0 +1,85 @@
+﻿@model IEnumerable<ChieuTour.Models.DonHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Danh sách đơn hàng</h2>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="test" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                Họ tên khách hàng
+                            </th>
+                            <th>
+                                Số điện thoại
+                            </th>
+                            <th>Tình trạng</th>
+                            <th width="50px"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.NguoiDung.HoTen
+                                </td>
+                                <td>
+                                    @item.NguoiDung.SDT
+                                </td>
+                                <td>
+                                    @if (item.TinhTrang == "Đang xử lý")
+                                    {
+                                        <span class="text- font-weight-bold text-warning text-uppercase ">@item.TinhTrang</span>
+                                    }
+                                    @if (item.TinhTrang == "Đã xác nhận")
+                                    {
+                                         <span class="text font-weight-bold text-success text-uppercase ">@item.TinhTrang</span>                                    }
+                                    @if (item.TinhTrang == "Không liên lạc được")
+                                    {
+                                        <span class="text font-weight-bold text-danger text-uppercase ">@item.TinhTrang</span>                                    }
+
+
+                                </td>
+                                <td>
+                                    @Html.ActionLink(" ", "Detail", new { MaDon = item.MaDon }, new { @class = "bi bi-ticket-detailed-fill btn btn-primary" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#test').DataTable({
+            "language": {
+                "paginate": {
+                    "previous": "Trước",
+                    "next": "Tiếp theo"
+                },
+
+            },
+            "oLanguage": {
+                "sEmptyTable": "Không có đơn hàng",
+                "sZeroRecords": "Không bản ghi nào được tìm thấy",
+                "sInfo": "Hiển thị từ _START_ đến _END_ trong số _TOTAL_ bản ghi",
+                "sInfoEmpty": "Hiển thị từ 0 đến 0 trong số 0 bản ghi",
+                "sInfoFiltered": "(được lọc từ _MAX_ bản ghi)",
+                "sLoadingRecords": "Đang tải...",
+                "sProcessing": "Đang xử lý...",
+                "sSearch": "Tìm kiếm:",
+            },
+            lengthChange: false
+        });
+    });
+</script>
