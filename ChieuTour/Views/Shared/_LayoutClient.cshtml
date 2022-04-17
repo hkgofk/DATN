@@ -29,13 +29,25 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/wwwroot/Client/themes/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/wwwroot/Client/themes/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="~/wwwroot/Client/themes/images/ico/apple-touch-icon-57-precomposed.png">
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+
     <style type="text/css" id="enject"></style>
 </head>
 <body>
     <div id="header">
         <div class="container">
             <div id="welcomeLine" class="row">
-                <div class="span6">Welcome!<strong> User</strong></div>
+                <div class="span6">
+                    @if (Session["Tendangnhap"] != null)
+                    {
+                        <a href="@Url.Action("logout", "NguoiDung")"><span>Chảo mừng! @Session["Tendangnhap"]</span></a>
+                        
+
+
+                    }
+                </div>
+
                 <div class="span6">
                     <div class="pull-right">
                         @*<a href="product_summary.html"><span class="">Fr</span></a>
@@ -56,17 +68,17 @@
                     <span class="icon-bar"></span>
                 </a>
                 <div class="navbar-inner">
-                    <a class="brand" href="index.html"><img src="~/wwwroot/images/logo.png" style="width: 193px; height: 47px" alt="Bootsshop" /></a>
+                    <a class="brand" href="@Url.Action("Index", "Home")"><img src="~/wwwroot/images/logo.png" style="width: 193px; height: 47px" alt="Bootsshop" /></a>
                     <form class="form-inline navbar-search" method="post" action="products.html">
                         <input id="srchFld" class="srchTxt" type="text" />
                         <button type="submit" id="submitButton" class="btn btn-primary">Tìm kiếm</button>
                     </form>
                     <ul id="topMenu" class="nav pull-right">
-                        <li class=""><a href="special_offer.html">TRANG CHỦ</a></li>
+                        <li class=""><a href="@Url.Action("Index", "Home")">TRANG CHỦ</a></li>
                         <li class=""><a href="normal.html">GIỚI THIỆU</a></li>
                         <li class=""><a href="contact.html">TIN TỨC</a></li>
                         <li class="">
-                            <a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">ĐĂNG NHẬP</span></a>
+                            <a href="@Url.Action("Index", "NguoiDung")" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">ĐĂNG NHẬP</span></a>
                         </li>
                     </ul>
                 </div>
