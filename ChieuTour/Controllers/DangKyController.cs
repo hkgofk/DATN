@@ -69,7 +69,7 @@ namespace ChieuTour.Controllers
                 db.SaveChanges();
                 TempData["success"] = "Đăng ký thành công!";
             }
-            return this.Index();
+            return RedirectToAction("Index", "NguoiDung");
         }
     }
 }

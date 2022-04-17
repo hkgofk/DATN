@@ -51,10 +51,10 @@ namespace ChieuTour.Controllers
         public ActionResult GioHang()
         {
             List<GioHang> lstGioHang = Laygiohang();
-            //if (lstGioHang.Count == 0)
-            //{
-            //    return RedirectToAction("Index", "Home");
-            //}
+            if (lstGioHang.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
             ViewBag.Tongtien = Tongtien();
             return View(lstGioHang);
@@ -99,7 +99,7 @@ namespace ChieuTour.Controllers
         [HttpGet]
         public ActionResult DatHang()
         {
-            if (Session["Tendangnhap"] == null || Session["Tendangnhap"].ToString() == "")
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
             {
                 return RedirectToAction("Index", "NguoiDung");
             }
@@ -113,7 +113,7 @@ namespace ChieuTour.Controllers
         }
         public ActionResult DatHang(FormCollection collection)
         {
-            NguoiDung Kh = (NguoiDung)Session["Tendangnhap"];
+            NguoiDung Kh = (NguoiDung)Session["TaiKhoan"];
             DonHang ddh = new DonHang();
             List<GioHang> gh = Laygiohang();
             ddh.MaNguoiDung = Kh.MaNguoiDung;
@@ -133,12 +133,9 @@ namespace ChieuTour.Controllers
             }
             db.SaveChanges();
             Session["GioHang"] = null;
-            return RedirectToAction("Xacnhandonhang", "GioHang");
+            TempData["success"] = "Đặt hàng thành công chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất";
+            return RedirectToAction("Index", "Home");
 
-        }
-        public ActionResult Xacnhandonhang()
-        {
-            return View();
         }
     }
 }

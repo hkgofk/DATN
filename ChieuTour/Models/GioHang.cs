@@ -21,8 +21,17 @@ namespace ChieuTour.Models
             this.maTour = maTour;
             Tour tour = db.Tours.Single(t => t.MaTour == this.maTour);
             anh = tour.Anh;
-            giaNL = double.Parse(tour.GiaNL.ToString());
-            giaTE = double.Parse(tour.GiaTE.ToString());
+            if(tour.GiamGia != 0)
+            {
+                giaNL = (float)tour.GiaNL * (1 - (float)tour.GiamGia/100);
+                giaTE = (float)tour.GiaTE * (1 - (float)tour.GiamGia/100);
+            }
+            else
+            {
+                giaNL = double.Parse(tour.GiaNL.ToString());
+                giaTE = double.Parse(tour.GiaTE.ToString());
+            }
+            
             tenTour = tour.TenTour;
             soLuongNL = 1;
             soLuongTE = 0;

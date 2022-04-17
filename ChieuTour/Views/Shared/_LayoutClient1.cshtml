@@ -42,7 +42,7 @@
                     @if (Session["Tendangnhap"] != null)
                     {
 
-                    <a href="@Url.Action("logout", "NguoiDung")"><span>Chảo mừng! @Session["Tendangnhap"]</span></a>
+                    <span>Chảo mừng! @Session["Tendangnhap"]</span>
 
 
                     }
@@ -76,9 +76,18 @@
                         <li class=""><a href="@Url.Action("Index", "Home")">TRANG CHỦ</a></li>
                         <li class=""><a href="normal.html">GIỚI THIỆU</a></li>
                         <li class=""><a href="contact.html">TIN TỨC</a></li>
-                        <li class="">
-                            <a href="@Url.Action("Index", "NguoiDung")" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">ĐĂNG NHẬP</span></a>
-                        </li>
+                        @if (Session["Tendangnhap"] != null)
+                        {
+                            <li class="">
+                                <a href="@Url.Action("logout", "NguoiDung")" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">ĐĂNG XUẤT</span></a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="">
+                                <a href="@Url.Action("Index", "NguoiDung")" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">ĐĂNG NHẬP</span></a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

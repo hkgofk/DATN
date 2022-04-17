@@ -33,7 +33,8 @@ namespace ChieuTour.Controllers
                 NguoiDung kh = db.NguoiDungs.SingleOrDefault(n => n.TaiKhoan == tendn && n.MatKhau == matkhau);
                 if (kh != null)
                 {
-                    TempData["success"] = "Chúc mứng đăng nhập thành công";
+                    TempData["success"] = "Đăng nhập thành công";
+                    Session["TaiKhoan"] = kh;
                     Session["Tendangnhap"] = kh.HoTen;
                     return RedirectToAction("Index", "Home");
                 }

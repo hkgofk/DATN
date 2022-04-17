@@ -51,76 +51,22 @@
                 }
             </tr>
             }
+            <tr style="text-align:right;font-weight:bold;color:blue">
+                <td colspan="11" style="text-align: center"> @Html.ActionLink("Xóa Giỏ Hàng", "XoaTatcaGiohang")</td>
+            </tr>
 
 
-
             <tr>
-                <td colspan="9" style="text-align:right">Total Price:	</td>
-                <td> $228.00</td>
-            </tr>
-            <tr>
-                <td colspan="9" style="text-align:right">Total Discount:	</td>
-                <td> $50.00</td>
-            </tr>
-            <tr>
-                <td colspan="9" style="text-align:right">Total Tax:	</td>
-                <td> $31.00</td>
-            </tr>
-            <tr>
-                <td colspan="9" style="text-align:right"><strong>TOTAL ($228 - $50 + $31) =</strong></td>
-                <td class="label label-important" style="display:block"> <strong> $155.00 </strong></td>
+                <td colspan="9" style="text-align:right"><strong>TỔNG TIỀN</strong></td>
+                <td class="label label-important" style="display:block"> <strong> @string.Format("{0:0,0}", ViewBag.Tongtien) vnđ</strong></td>
             </tr>
         </tbody>
     </table>
 
 
-    <table class="table table-bordered">
-        <tbody>
-            <tr>
-                <td>
-                    <form class="form-horizontal">
-                        <div class="control-group">
-                            <label class="control-label"><strong> VOUCHERS CODE: </strong> </label>
-                            <div class="controls">
-                                <input type="text" class="input-medium" placeholder="CODE">
-                                <button type="submit" class="btn"> ADD </button>
-                            </div>
-                        </div>
-                    </form>
-                </td>
-            </tr>
 
-        </tbody>
-    </table>
-
-    <table class="table table-bordered">
-        <tr><th>ESTIMATE YOUR SHIPPING </th></tr>
-        <tr>
-            <td>
-                <form class="form-horizontal">
-                    <div class="control-group">
-                        <label class="control-label" for="inputCountry">Country </label>
-                        <div class="controls">
-                            <input type="text" id="inputCountry" placeholder="Country">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="inputPost">Post Code/ Zipcode </label>
-                        <div class="controls">
-                            <input type="text" id="inputPost" placeholder="Postcode">
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="controls">
-                            <button type="submit" class="btn">ESTIMATE </button>
-                        </div>
-                    </div>
-                </form>
-            </td>
-        </tr>
-    </table>
-    <a href="products.html" class="btn btn-large"><i class="icon-arrow-left"></i> Continue Shopping </a>
-    <a href="login.html" class="btn btn-large pull-right">Next <i class="icon-arrow-right"></i></a>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-large"><i class="icon-arrow-left"></i> Tiếp tục mua </a>
+    <a href="@Url.Action("DatHang", "GioHang")" class="btn btn-large pull-right">Đặt tour <i class="icon-arrow-right"></i></a>
 
 </div>
 

@@ -1,0 +1,99 @@
+﻿@using ChieuTour.Models
+@*@model List<GioHang>*@
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+
+<div class="span9">
+    <ul class="breadcrumb">
+        <li><a href="@Url.Action("Index", "Home")">Trang chủ</a> <span class="divider">/</span></li>
+        <li class="active"> GIỎ HÀNG</li>
+    </ul>
+    <h3>  GIỎ HÀNG <a href="@Url.Action("Index", "Home")" class="btn btn-large pull-right"><i class="icon-arrow-left"></i> Tiếp tục mua </a></h3>
+    <hr class="soft" />
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Ảnh</th>
+                <th>Tên tour</th>
+                <th>Số lượng người lớn</th>
+                <th>Giá người lớn</th>
+                <th>Số lượng trẻ em</th>
+                <th>Giá trẻ em</th>
+                <th>Thành tiền</th>
+                <th colspan="3">Hành động</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td> <img width="60" src="~/wwwroot/images/@item.anh" alt="" /></td>
+                    <td width="200px">@item.tenTour</td>
+                    @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { iMaSP = item.maTour }))
+                    {
+                        <td>
+                            <input type="number" min="1" name="txtSoLuongNL" value="@item.soLuongNL" style="background-color:yellow; width: 115px" />
+                        </td>
+                        <td>@String.Format("{0:0,0}", item.giaNL)</td>
+                        <td>
+                            <input type="number" min="0" name="txtSoLuongTE" value="@item.soLuongTE" style="background-color: yellow; width: 100px" />
+                        </td>
+
+                        <td>@String.Format("{0:0,0}", item.giaTE)</td>
+                        <td>@String.Format("{0:0,0}", item.thanhTien)</td>
+                        <td><a href="@Url.Action("Detail","Tour",new { id = item.maTour })">Chi Tiết</a></td>
+                        <td> @Html.ActionLink("Xóa", "XoaGiohang", new { @iMaSP = item.maTour })</td>
+                        <td><input type="submit" value="Cập nhật" /></td>
+                    }
+                </tr>
+            }
+            <tr style="text-align:right;font-weight:bold;color:blue">
+                <td colspan="11" style="text-align: center"> @Html.ActionLink("Xóa Giỏ Hàng", "XoaTatcaGiohang")</td>
+            </tr>
+
+
+            <tr>
+                <td colspan="9" style="text-align:right"><strong>TỔNG TIỀN</strong></td>
+                <td class="label label-important" style="display:block"> <strong> @string.Format("{0:0,0}", ViewBag.Tongtien) vnđ</strong></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="@Url.Action("GioHang", "GioHang")" class="btn btn-large"><i class="icon-arrow-left"></i> Trở về giỏ hàng </a>
+    <br /><br /><br />
+    <h2 style="text-align:center">THÔNG TIN ĐẶT TOUR</h2>
+    @{
+        NguoiDung kh = (NguoiDung)Session["TaiKhoan"];
+    }
+    <table align="center" border="1" cellpadding="0" cellspacing="0" style="font-size:13pt">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <tr style="height:40px">
+                <td>Họ tên khách hàng:</td>
+                <td style="font-weight:bold">@kh.HoTen</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Địa chỉ:</td>
+                <td style="font-weight:bold">@kh.DiaChi</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Điện thoại:</td>
+                <td style="font-weight:bold">@kh.SDT</td>
+            </tr>
+            <tr style="height:40px">
+                <td>Ngày đặt:</td>
+                <td style="font-weight:bold">@DateTime.Now.ToShortDateString()</td>
+            </tr>
+            <tr style="height:40px">
+                <td></td>
+                <td><input type="submit" value="ĐỒNG Ý ĐẶT TOUR" /></td>
+            </tr>
+
+        }
+    </table>
+</div>
+
