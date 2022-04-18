@@ -5,7 +5,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
 }
-
+@{Html.RenderAction("ListDanhMuc", "DanhMuc");}
 <ul class="thumbnails">
     @foreach (var item in Model)
     {

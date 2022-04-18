@@ -10,11 +10,13 @@
 
 @foreach (var m in ViewBag.Main)
 {
-    <h4 name="maDon">Mã đơn hàng: @m.donhang.MaDon</h4>
+    <h4>Mã đơn hàng: @m.donhang.MaDon</h4>
     <h4>Tên khách hàng: @m.nguoidung.HoTen</h4>
     <h4>Địa chỉ: @m.nguoidung.DiaChi</h4>
     <h4>Số điện thoại: @m.nguoidung.SDT</h4>
     <h4>Email: @m.nguoidung.Email</h4>
+    <h4>Ngày đặt: @string.Format("{0:dd/MM/yyyy}", @m.donhang.NgayDat)</h4>
+
 }
 <div class="card shadow mb-4">
     <div class="card-header py-3">

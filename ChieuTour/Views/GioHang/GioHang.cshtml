@@ -4,8 +4,8 @@
     ViewBag.Title = "GioHang";
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
 }
-
-<div class="span9">
+<div  class="span1"></div>
+<div class="span10">
     <ul class="breadcrumb">
         <li><a href="@Url.Action("Index", "Home")">Trang chủ</a> <span class="divider">/</span></li>
         <li class="active"> GIỎ HÀNG</li>
@@ -57,8 +57,9 @@
 
 
             <tr>
-                <td colspan="9" style="text-align:right"><strong>TỔNG TIỀN</strong></td>
+                <td colspan="6" style="text-align:right"><strong>TỔNG TIỀN</strong></td>
                 <td class="label label-important" style="display:block"> <strong> @string.Format("{0:0,0}", ViewBag.Tongtien) vnđ</strong></td>
+                <td colspan="3" hidden></td>
             </tr>
         </tbody>
     </table>

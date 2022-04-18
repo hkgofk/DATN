@@ -3,7 +3,7 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
 }
-
+<div class="span2"></div>
 <div class="span9">
     <ul class="breadcrumb">
         <li><a href="@Url.Action("Index", "Home")">TRANG CHỦ</a> <span class="divider">/</span></li>
@@ -44,7 +44,7 @@
                         <p style="color: red; font-size: large; font-weight: bold">@string.Format("{0:#,#}", Model.GiaTE) vnđ</p>
                     }
                     <div class="controls">                        
-                        <button type="submit" class="btn btn-large btn-primary pull-right"> Thêm vào giỏ hàng <i class=" icon-shopping-cart"></i></button>
+                        <a class="btn btn-large btn-primary pull-right" href="@Url.Action("ThemGiohang", "GioHang", new { @maTour = Model.MaTour, @strURL = Request.Url.ToString() })"> Thêm vào giỏ hàng <i class=" icon-shopping-cart"></i></a>
                     </div>
                 </div>
             </form>                     
