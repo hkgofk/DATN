@@ -11,7 +11,7 @@
     {
         <li class="span3">
             <div class="thumbnail">
-                <a href="product_details.html"><img src="~/wwwroot/images/@item.Anh" alt="" /></a>
+                <a href="@Url.Action("Detail", "Tour", new { id = item.MaTour })"><img src="~/wwwroot/images/@item.Anh" alt="" /></a>
                 <div class="caption">
                     <h5>@item.TenTour</h5>
                     @if (item.GiamGia != 0)

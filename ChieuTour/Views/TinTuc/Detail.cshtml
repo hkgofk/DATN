@@ -1,0 +1,29 @@
+﻿@model ChieuTour.Models.TinTuc
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+
+<div class="span9">
+    <ul class="breadcrumb">
+        <li><a href="@Url.Action("Index", "Home")">TRANG CHỦ</a> <span class="divider">/</span></li>
+        <li class="active">TIN TỨC</li>
+    </ul>
+    <div class="row">
+        <div id="gallery" class="span3">
+            <img src="~/wwwroot/images/@Model.HinhAnh" style="width:100%" alt="@Model.HinhAnh" />
+        </div>
+        <div class="span6">
+            <h3>@Model.TieuDe</h3>
+            <small>Người đăng: Nguyễn Trung Hiếu</small><br />
+            <small>Ngày đăng: @string.Format("{0:dd/MM/yyyy}", Model.NgayDang)</small>
+            <hr class="soft" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="span9">
+            @Html.Raw(Model.NoiDung)
+        </div>
+    </div>
+</div>
+
