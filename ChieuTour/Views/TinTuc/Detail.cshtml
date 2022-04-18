@@ -3,8 +3,8 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
 }
-
-<div class="span9">
+<div class="span1"></div>
+<div class="span10">
     <ul class="breadcrumb">
         <li><a href="@Url.Action("Index", "Home")">TRANG CHỦ</a> <span class="divider">/</span></li>
         <li class="active">TIN TỨC</li>
@@ -13,7 +13,7 @@
         <div id="gallery" class="span3">
             <img src="~/wwwroot/images/@Model.HinhAnh" style="width:100%" alt="@Model.HinhAnh" />
         </div>
-        <div class="span6">
+        <div class="span7">
             <h3>@Model.TieuDe</h3>
             <small>Người đăng: Nguyễn Trung Hiếu</small><br />
             <small>Ngày đăng: @string.Format("{0:dd/MM/yyyy}", Model.NgayDang)</small>
@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="span9">
+        <div class="span10">
             @Html.Raw(Model.NoiDung)
         </div>
     </div>
