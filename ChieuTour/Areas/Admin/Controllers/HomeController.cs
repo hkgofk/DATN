@@ -13,6 +13,13 @@ namespace ChieuTour.Areas.Admin.Controllers
         // GET: Admin/Home
         public ActionResult Index()
         {
+            var notification = db.DonHangs.Where(d => d.TinhTrang.Equals("Đang xử lý")).Select(d => d);
+            if (notification.Count()!= 0)
+            {
+                TempData["info"] = "Có " + notification.Count() + " đơn hàng mới đang chờ xử lý";
+
+            }
+
             if (Session["HoTen"] == null)
             {
                 return RedirectToAction("Login");
