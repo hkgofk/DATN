@@ -73,11 +73,17 @@
                         </span>
                         <span class="text">Xác nhận</span>
                     </a>
-                    <a href="@Url.Action("XacNhan", "DonHang", new { @MaDon = ViewBag.maDon, @text = "Không liên lạc được" })" class="btn btn-danger btn-icon-split right">
+                    <a href="@Url.Action("XacNhan", "DonHang", new { @MaDon = ViewBag.maDon, @text = "Không liên lạc được" })" class="btn btn-warning btn-icon-split right">
                         <span class="icon text-white-50">
                             <i class="fas fa-exclamation-triangle"></i>
                         </span>
                         <span class="text">Không liên lạc được</span>
+                    </a>
+                    <a href="@Url.Action("XacNhan", "DonHang", new { @MaDon = ViewBag.maDon, @text = "Khách hủy" })" class="btn btn-danger btn-icon-split">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-trash"></i>
+                        </span>
+                        <span class="text">Khách hủy</span>
                     </a>
                 </div>
             </div>
