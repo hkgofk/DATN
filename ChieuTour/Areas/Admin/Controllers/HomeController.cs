@@ -13,7 +13,18 @@ namespace ChieuTour.Areas.Admin.Controllers
         private ChieuTourDBContext db = new ChieuTourDBContext();
         // GET: Admin/Home
         public ActionResult Index()
-        {         
+        {
+            var danhMuc = db.DanhMucs.Select(d => d).Count();
+            var tour = db.Tours.Select(t => t).Count();
+            var donHang = db.DonHangs.Where(d => d.TinhTrang == "Đã xác nhận").Select(d => d).Count();
+            var tinTuc = db.TinTucs.Select(tt => tt).Count();
+
+            ViewBag.DanhMuc = danhMuc;
+            ViewBag.Tour = tour;
+            ViewBag.DonHang = donHang;
+            ViewBag.TinTuc = tinTuc;
+
+
             var notification = db.DonHangs.Where(d => d.TinhTrang.Equals("Đang xử lý")).Select(d => d);
             if (notification.Count()!= 0)
             {
@@ -30,7 +41,7 @@ namespace ChieuTour.Areas.Admin.Controllers
             }
             return View();
         }
-        public ActionResult getReportByYear(int year)
+        public ActionResult GetReportByYear(int year)
         {
             var thongKe = db.Database.SqlQuery<ThongKe>($"thongKe {year}").ToList();
 
