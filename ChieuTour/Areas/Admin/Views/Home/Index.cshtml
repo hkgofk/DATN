@@ -4,5 +4,11 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Index</h2>
+@foreach (var item in ViewBag.test)
+{
+    <li>@item.Thang</li>
+    <li>@item.Total</li>
 
+}
+
+<h2>Index</h2>
