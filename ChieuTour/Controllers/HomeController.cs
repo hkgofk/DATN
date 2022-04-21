@@ -1,4 +1,5 @@
 ﻿using ChieuTour.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,24 @@ namespace ChieuTour.Controllers
 
         }
 
+        public ActionResult search(string searchString, int? page, string filter)
+        {
+            var result = db.Tours.Where(t => t.TenTour.Contains(searchString));
+            result = result.OrderBy(r => r.MaTour);
+            int pageSize = 6;
+            int pageNumber = page ?? 1;
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = filter;
+            }
+            ViewBag.Filter = searchString;
+
+            return View(result.ToPagedList(pageNumber, pageSize));
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

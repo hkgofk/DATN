@@ -68,10 +68,15 @@
                 </a>
                 <div class="navbar-inner">
                     <a class="brand" href="@Url.Action("Index", "Home")"><img src="~/wwwroot/images/logo.png" style="width: 193px; height: 47px" alt="Bootsshop" /></a>
-                    <form class="form-inline navbar-search" method="post" action="products.html">
-                        <input id="srchFld" class="srchTxt" type="text" />
+                    @*<form class="form-inline navbar-search" method="post" action="products.html">
+                        <input id="srchFld"  type="text" />
                         <button type="submit" id="submitButton" class="btn btn-primary">Tìm kiếm</button>
-                    </form>
+                    </form>*@
+                    @using(Html.BeginForm("search","Home",FormMethod.Get, new {@class = "form-inline navbar-search" }))
+                    {
+                        <input name="SearchString" type="text" placeholder="Nhập tên tour cần tìm" value="@ViewBag.Filter" />
+                        <input type="submit" value="Tìm kiếm" class="btn btn-primary" />
+                    }
                     <ul id="topMenu" class="nav pull-right">
                         <li class=""><a href="@Url.Action("Index", "Home")">TRANG CHỦ</a></li>
                         <li class=""><a href="@Url.Action("About", "Home")">GIỚI THIỆU</a></li>
