@@ -9,9 +9,22 @@
 
 @{Html.RenderAction("ListDanhMuc", "DanhMuc");}
 <ul class="thumbnails">
-    @if(Model.Count == 0)
+    @if (Model.Count == 0)
     {
-        <h1>Không tìm thấy kết quả!</h1>
+        <h1 class="span9">Không tìm thấy kết quả!</h1>
+    }
+    else
+    {
+        using (Html.BeginForm("search", "Home", FormMethod.Get, new { @class = "form-inline navbar-search" }))
+        {
+            <div class="span9">
+                <input name="searchString" type="hidden" value="@ViewBag.Filter" />
+                Tìm theo khoảng giá từ
+                <input type="text" name="min" value="@ViewBag.Min" /> đến
+                <input type="text" name="max" value="@ViewBag.Max" />
+                <input type="submit" value="Tìm" />
+            </div>
+        }
     }
     @foreach (var item in Model)
     {
@@ -42,6 +55,6 @@
 </ul>
 <div style="float: right">
     Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
-    @Html.PagedListPager(Model, page => Url.Action("search", new { page, filter = ViewBag.Filter }))
+    @Html.PagedListPager(Model, page => Url.Action("search", new { page, filter = ViewBag.Filter, min = ViewBag.Min, max = ViewBag.Max }))
 </div>
 

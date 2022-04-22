@@ -32,10 +32,9 @@ namespace ChieuTour.Controllers
 
         }
 
-        public ActionResult search(string searchString, int? page, string filter)
+        public ActionResult search(string searchString, int? page, string filter, decimal? min, decimal? max)
         {
             var result = db.Tours.Where(t => t.TenTour.Contains(searchString));
-            result = result.OrderBy(r => r.MaTour);
             int pageSize = 6;
             int pageNumber = page ?? 1;
             if (searchString != null)
@@ -47,6 +46,19 @@ namespace ChieuTour.Controllers
                 searchString = filter;
             }
             ViewBag.Filter = searchString;
+
+            if (min != null && max != null)
+            {
+                page = 1;
+                result = db.Tours.Where(t => t.GiaNL <= max && t.GiaNL >= min && t.TenTour.Contains(searchString));
+
+            }
+            ViewBag.Min = min;
+            ViewBag.Max = max;
+
+            result = result.OrderBy(r => r.MaTour);
+
+
 
             return View(result.ToPagedList(pageNumber, pageSize));
         }
