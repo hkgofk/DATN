@@ -1,0 +1,102 @@
+﻿@model IEnumerable<ChieuTour.Models.NguoiDung>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Danh sách người dùng</h2>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="test" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PhanQuyen.TenQuyen)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TaiKhoan)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MatKhau)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.HoTen)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DiaChi)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SDT)
+                            </th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhanQuyen.TenQuyen)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TaiKhoan)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MatKhau)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HoTen)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DiaChi)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SDT)
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "Details", new { id = item.MaNguoiDung }, new { @class = "bi bi-ticket-detailed-fill btn btn-primary" }) 
+                                @*@Html.ActionLink(" ", "Edit", new { id = item.MaNguoiDung }, new { @class = "bi bi-pencil-square btn btn-warning" })*@ 
+                                @Html.ActionLink(" ", "Delete", new { id = item.MaNguoiDung }, new { @class = "bi bi-trash-fill btn btn-danger" })
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#test').DataTable({
+            "language": {
+                "paginate": {
+                    "previous": "Trước",
+                    "next": "Tiếp theo"
+                },
+
+            },
+            "oLanguage": {
+                "sEmptyTable": "Không có người dùng",
+                "sZeroRecords": "Không bản ghi nào được tìm thấy",
+                "sInfo": "Hiển thị từ _START_ đến _END_ trong số _TOTAL_ bản ghi",
+                "sInfoEmpty": "Hiển thị từ 0 đến 0 trong số 0 bản ghi",
+                "sInfoFiltered": "(được lọc từ _MAX_ bản ghi)",
+                "sLoadingRecords": "Đang tải...",
+                "sProcessing": "Đang xử lý...",
+                "sSearch": "Tìm kiếm:",
+            },
+            lengthChange: false
+        });
+    });
+</script>
