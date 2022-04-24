@@ -42,7 +42,9 @@
                     @if (Session["Tendangnhap"] != null)
                     {
 
-                    <span>Chảo mừng! @Session["Tendangnhap"]</span>
+                        <a href="@Url.Action("Detail", "NguoiDung")">
+                            <span>Chảo mừng! @Session["Tendangnhap"]</span>
+                        </a>
 
 
                     }

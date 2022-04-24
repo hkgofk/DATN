@@ -2637,6 +2637,8 @@
     <Content Include="Views\TinTuc\Detail.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\search.cshtml" />
+    <Content Include="Views\NguoiDung\Detail.cshtml" />
+    <Content Include="Views\NguoiDung\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

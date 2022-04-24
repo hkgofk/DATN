@@ -42,6 +42,39 @@ namespace ChieuTour.Controllers
             }
             return View();
         }
+
+        public ActionResult Detail()
+        {
+            NguoiDung nguoiDung = (NguoiDung)Session["TaiKhoan"];
+
+            return View(nguoiDung);
+        }
+        public ActionResult Edit()
+        {
+            NguoiDung nguoiDung = (NguoiDung)Session["TaiKhoan"];
+
+            return View(nguoiDung);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(NguoiDung nguoiDung, string matKhauXacNhan)
+        {
+            if (nguoiDung.MatKhau == matKhauXacNhan)
+            {
+                db.Entry(nguoiDung).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                TempData["success"] = "Cập nhật thông tin thành công!";
+                Session["TaiKhoan"] = nguoiDung;
+                Session["Tendangnhap"] = nguoiDung.HoTen;
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                TempData["error"] = "Mật khẩu bạn nhập không đúng!";
+            }
+            return View(nguoiDung);
+        }
+
         public ActionResult logout()
         {
             Session["Tendangnhap"] = null;

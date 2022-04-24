@@ -1,0 +1,56 @@
+﻿@model ChieuTour.Models.NguoiDung
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+
+<div class="span1"></div>
+<div class="span10">
+    <h4>Thông tin của bạn</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TaiKhoan):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaiKhoan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTen):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+        <dt></dt>
+        <dd>
+            @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaNguoiDung }, new { @class = "btn btn-warning" })
+        </dd>
+    </dl>
+
+</div>
