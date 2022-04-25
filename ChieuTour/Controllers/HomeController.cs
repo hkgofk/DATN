@@ -26,7 +26,7 @@ namespace ChieuTour.Controllers
                       }).Take(6);
 
             ViewBag.top6 = kq;
-            var listTT = db.TinTucs.Select(t => t).OrderBy(t => t.NgayDang).Take(12);
+            var listTT = db.TinTucs.Select(t => t).OrderByDescending(t => t.NgayDang).Take(4);
             ViewBag.TT = listTT;
             return View();
 
