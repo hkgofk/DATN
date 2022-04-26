@@ -8,47 +8,38 @@
 <div class="span10">
     <h4>Thông tin của bạn</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TaiKhoan):
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TaiKhoan)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.HoTen):
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HoTen)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DiaChi):
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DiaChi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email):
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SDT):
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SDT)
-        </dd>
-            @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaNguoiDung }, new { @class = "btn btn-warning" })
-            @Html.ActionLink("Đổi mật khẩu", "changePassword", null, new { @class = "btn btn-danger" })
-    </dl>
+    <div class="span2"></div>
+    <div class="span6">
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <td>Tài khoản</td>
+                    <td>@Model.TaiKhoan</td>
+                </tr>
+                <tr>
+                    <td>Họ và tên</td>
+                    <td>@Model.HoTen</td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ</td>
+                    <td>@Model.DiaChi</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>@Model.Email</td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại</td>
+                    <td>@Model.SDT</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaNguoiDung }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Đổi mật khẩu", "changePassword", null, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </div>

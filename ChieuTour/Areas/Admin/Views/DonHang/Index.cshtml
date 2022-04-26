@@ -19,6 +19,7 @@
                             <th>
                                 Số điện thoại
                             </th>
+                            <th>Ngày đặt</th>
                             <th>Tình trạng</th>
                             <th width="50px"></th>
                         </tr>
@@ -33,6 +34,7 @@
                                 <td>
                                     @item.NguoiDung.SDT
                                 </td>
+                                <td>@string.Format("{0:dd/MM/yyyy}", item.NgayDat)</td>
                                 <td>
                                     @if (item.TinhTrang == "Đang xử lý")
                                     {
