@@ -3,14 +3,20 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutClient.cshtml";
 }
-
-<div class="span9">
+<div class="span1"></div>
+<div class="span10">
     <ul class="breadcrumb">
         <li><a href="@Url.Action("Index", "Home")">Trang chủ</a> <span class="divider">/</span></li>
         <li class="active">Đăng ký</li>
     </ul>
     <h3> Đăng ký</h3>
-    <div class="well">
+    @*<div class="span3"></div>*@
+    <div class="row">
+        <div class="span2">
+
+        </div>
+
+    <div class="well span6">
         <form class="form-horizontal" method="post" name="dang-ky">
             <h4>Thông tin của bạn</h4>
             <div class="control-group">
@@ -61,6 +67,7 @@
                 </div>
             </div>
         </form>
+    </div>
     </div>
 
 </div>
