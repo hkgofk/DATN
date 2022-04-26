@@ -47,10 +47,8 @@
         <dd>
             @Html.DisplayFor(model => model.SDT)
         </dd>
-        <dt></dt>
-        <dd>
             @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaNguoiDung }, new { @class = "btn btn-warning" })
-        </dd>
+            @Html.ActionLink("Đổi mật khẩu", "changePassword", null, new { @class = "btn btn-danger" })
     </dl>
 
 </div>

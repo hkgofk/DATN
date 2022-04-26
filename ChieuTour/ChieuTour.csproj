@@ -2639,6 +2639,7 @@
     <Content Include="Views\Home\search.cshtml" />
     <Content Include="Views\NguoiDung\Detail.cshtml" />
     <Content Include="Views\NguoiDung\Edit.cshtml" />
+    <Content Include="Views\NguoiDung\changePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

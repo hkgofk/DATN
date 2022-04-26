@@ -81,5 +81,36 @@ namespace ChieuTour.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult changePassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult changePassword(string oldPass, string newPass, string confirmPass)
+        {
+            NguoiDung nguoiDungChange = (NguoiDung)Session["TaiKhoan"];
+            NguoiDung nguoiDung = db.NguoiDungs.Where(n => n.MaNguoiDung == nguoiDungChange.MaNguoiDung).FirstOrDefault();
+
+            if (oldPass != nguoiDung.MatKhau)
+            {
+                TempData["error"] = "Mật khẩu cũ không chính xác!";
+                return View();
+            }
+            else if (newPass != confirmPass)
+            {
+                TempData["error"] = "Mật khẩu mới bạn nhập không trùng nhau!";
+                return View();
+            }
+            else if (nguoiDung.MatKhau == oldPass)
+            {
+                nguoiDung.MatKhau = newPass;
+                db.Entry(nguoiDung).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                Session["TaiKhoan"] = nguoiDung;
+                TempData["success"] = "Đổi mật khẩu thành công!";
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
+        }
     }
 }
