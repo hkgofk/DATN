@@ -22,9 +22,6 @@
                     <thead>
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.DanhMuc.TenDanhMuc)
-                            </th>
-                            <th>
                                 @Html.DisplayNameFor(model => model.TenTour)
                             </th>                                                    
                             <th>
@@ -37,9 +34,6 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.DanhMuc.TenDanhMuc)
-                                </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.TenTour)
                                 </td>                              
