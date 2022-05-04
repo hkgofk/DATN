@@ -30,9 +30,10 @@ namespace ChieuTour.Controllers
             }
             else
             {
-                NguoiDung kh = db.NguoiDungs.SingleOrDefault(n => n.TaiKhoan == tendn && n.MatKhau == matkhau);
-                if (kh != null)
+                var nguoiDung = db.Database.SqlQuery<User>($"loginCustomer {tendn}, {matkhau}").ToList();
+                if (nguoiDung.Count() > 0)
                 {
+                    NguoiDung kh = db.NguoiDungs.SingleOrDefault(n => n.TaiKhoan == tendn && n.MatKhau == matkhau);
                     TempData["success"] = "Đăng nhập thành công";
                     Session["TaiKhoan"] = kh;
                     Session["Tendangnhap"] = kh.HoTen;

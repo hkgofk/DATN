@@ -57,10 +57,12 @@ namespace ChieuTour.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var nguoiDungs = db.NguoiDungs.Where(n => n.TaiKhoan.Equals(user.TaiKhoan) && n.MatKhau.Equals(user.MatKhau) && n.IdQuyen == 1);
-                if (nguoiDungs.Count() > 0)
+                //var nguoiDungs = db.NguoiDungs.Where(n => n.TaiKhoan.Equals(user.TaiKhoan) && n.MatKhau.Equals(user.MatKhau) && n.IdQuyen == 1);
+                var nguoiDung = db.Database.SqlQuery<User>($"loginAdmin {user.TaiKhoan}, {user.MatKhau}").ToList();
+                if (nguoiDung.Count() > 0)
                 {
-                    Session["HoTen"] = nguoiDungs.FirstOrDefault().HoTen;
+                    var nguoiDungR = db.NguoiDungs.Where(n => n.TaiKhoan.Equals(user.TaiKhoan));
+                    Session["HoTen"] = nguoiDungR.FirstOrDefault().HoTen;
                     //TempData["success"] = "Đăng nhập thành công!";
                     return RedirectToAction("Index");
                 }
