@@ -15,6 +15,7 @@ namespace ChieuTour.Areas.Admin.Controllers
         public ActionResult Index()
         {
             var donHang = db.DonHangs.Include(d => d.NguoiDung);
+            donHang = donHang.OrderByDescending(d => d.NgayDat);
 
             return View(donHang.ToList());
         }
