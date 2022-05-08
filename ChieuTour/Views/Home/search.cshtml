@@ -30,14 +30,14 @@
     {
         <li class="span3">
             <div class="thumbnail">
-                <a href="@Url.Action("Detail", "Tour", new { id = item.MaTour })"><img src="~/wwwroot/images/@item.Anh" alt="" /></a>
+                <a href="@Url.Action("Detail", "Tour", new { id = item.MaTour })"><img src="~/wwwroot/images/@item.Anh" alt="" style="width:260px; height:250px"/></a>
                 <div class="caption">
                     <h5>@item.TenTour</h5>
                     @if (item.GiamGia != 0)
                     {
                         double giaGiam = 0;
                         giaGiam = (float)item.GiaNL * (1 - ((float)item.GiamGia / 100));
-                        <p style="text-decoration-line: line-through">@string.Format("{0:#,#}", item.GiaNL)</p>
+                        @*<p style="text-decoration-line: line-through">@string.Format("{0:#,#}", item.GiaNL)</p>*@
                         <p style="color: red; font-size: large; font-weight: bold">@string.Format("{0:#,#}", giaGiam) vnđ</p>
 
                     }
