@@ -76,7 +76,7 @@
                         </form>*@
                     @using (Html.BeginForm("search", "Home", FormMethod.Get, new { @class = "form-inline navbar-search" }))
                     {
-                        <input name="SearchString" type="text" placeholder="Nhập tên tour cần tìm" value="@ViewBag.Filter" />
+                        <input name="SearchString" type="text" placeholder="Nhập tên tour cần tìm" value="@ViewBag.Filter" required oninvalid="this.setCustomValidity('Vui lòng nhập tên tour cần tìm kiếm!')" oninput="setCustomValidity('')" />
                         <input type="submit" value="Tìm kiếm" class="btn btn-primary" />
                     }
                     <ul id="topMenu" class="nav pull-right">
