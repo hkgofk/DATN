@@ -25,6 +25,9 @@
                                 @Html.DisplayNameFor(model => model.TenTour)
                             </th>                                                    
                             <th>
+                                @Html.DisplayNameFor(model => model.GiaNL)
+                            </th>                                                    
+                            <th>
                                 @Html.DisplayNameFor(model => model.Anh)
                             </th>
                             <th>Thao tác</th>
@@ -36,6 +39,9 @@
                             <tr>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.TenTour)
+                                </td>                              
+                                <td>
+                                    @string.Format("{0:0,0}", item.GiaNL)
                                 </td>                              
                                 <td>
                                     @{

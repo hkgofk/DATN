@@ -43,9 +43,20 @@
                         <label>Giá trẻ em</label>
                         <p style="color: red; font-size: large; font-weight: bold">@string.Format("{0:#,#}", Model.GiaTE) vnđ</p>
                     }
-                    <div class="controls">                        
-                        <a class="btn btn-large btn-primary pull-right" href="@Url.Action("ThemGiohang", "GioHang", new { @maTour = Model.MaTour, @strURL = Request.Url.ToString() })"> Thêm vào giỏ hàng <i class=" icon-shopping-cart"></i></a>
-                    </div>
+                <div class="controls">
+                    @if (Model.HoatDong == "Đang hoạt động")
+                    {
+                        <a class="btn btn-large btn-primary pull-right" href="@Url.Action("ThemGiohang", "GioHang", new { @maTour = Model.MaTour, @strURL = Request.Url.ToString() })">
+                            Thêm vào giỏ hàng <i class="icon-shopping-cart"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="btn" style="display: none" href="@Url.Action("ThemGiohang", "GioHang", new { @maTour = Model.MaTour, @strURL = Request.Url.ToString() })">
+                            Thêm vào giỏ hàng <i class="icon-shopping-cart"></i>
+                        </a>
+                    }
+                </div>
                 </div>
             </form>                     
             <hr class="soft clr" />
