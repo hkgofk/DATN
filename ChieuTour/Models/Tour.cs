@@ -36,11 +36,13 @@
         [Required(ErrorMessage = "Giá người lớn không được để trống!")]
         [DisplayName("Giá người lớn")]
         [Column(TypeName = "money")]
+        [Range(0, 1000000000, ErrorMessage = "Giá phải lớn hơn 0")]
         public decimal GiaNL { get; set; }
 
         [Required(ErrorMessage = "Giá trẻ em không được để trống!")]
         [DisplayName("Giá trẻ em")]
         [Column(TypeName = "money")]
+        [Range(0, 1000000000, ErrorMessage = "Giá phải lớn hơn 0")]
         public decimal GiaTE { get; set; }
 
         [Required(ErrorMessage = "Phương tiện không được để trống!")]
@@ -57,6 +59,8 @@
 
         [Required(ErrorMessage = "Giảm giá không được để trống!")]
         [DisplayName("Giảm giá")]
+        [Range(0, 100, ErrorMessage = "Giảm giá 0 - 100")]
+
         public int GiamGia { get; set; }
 
         [Required(ErrorMessage = "Hoạt động không được để trống!")]
