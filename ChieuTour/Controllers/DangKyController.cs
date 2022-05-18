@@ -57,7 +57,6 @@ namespace ChieuTour.Controllers
                 {
                     ViewData["Loi7"] = "Phải nhập số điện thoại";
                 }
-
                 else
                 {
                     kh.HoTen = hoten;
@@ -70,8 +69,9 @@ namespace ChieuTour.Controllers
                     db.NguoiDungs.Add(kh);
                     db.SaveChanges();
                     TempData["success"] = "Đăng ký thành công!";
+                    return RedirectToAction("Index", "NguoiDung");
                 }
-                return RedirectToAction("Index", "NguoiDung");
+                return View();
             }
             catch (Exception)
             {
